@@ -3,6 +3,13 @@ body{
   font-family: poppins;
 }
 
+.main{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 4rem;
+}
 
 .grid-main {
   margin-top:2rem;
@@ -55,5 +62,14 @@ img {
   display: flex;
   justify-content: space-between;
   font-weight:600;
+}
+
+.navbar-nav{
+  display: flex;
+}
+
+.nav-link{
+  background-color: transparent;
+  border:none;
 }
 
