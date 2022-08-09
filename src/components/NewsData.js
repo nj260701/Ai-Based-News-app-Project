@@ -5,39 +5,52 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 
+
 export default function NewsData() {
-    const[selectedCategory , setSelectedCategory] = useState('');
+    const [categorySelected, setCategorySelected] = useState('');
     const [newsData, setNewsData] = useState([])
     const getAllNews = async () => {
-        let data = await getNews();
+        let data = await getNews(categorySelected);
         setNewsData(data.data?.articles)
-        
+
     }
-    
-    
 
     
+
+
+    const selectCategory = (event) =>{
+        const category = (event.target.value);
+        setCategorySelected(category);
+
+    }
+
+
+
+
     useEffect(() => {
-        getAllNews(selectedCategory);
-        setSelectedCategory(selectedCategory)
-    }, [selectedCategory])
+        getAllNews();
 
-    // console.log(newsData?.data?.articles); 
+
+    }, [categorySelected])
+
 
     return (
         <>
-            <Navbar />
+            <Navbar selectCategory={selectCategory}/>
+
             <div className='main'>
                 <h1>Top headlines</h1>
 
 
                 <div className='grid-main'>
-                    {newsData?.map((news) => {
+                    {newsData?.map((news , index) => {
+                        
                         return (
-                            <div className='grid-child'>
+                            
+                            <div className='grid-child' key={index}>
 
-                                <img classname='news-image'
-                                    src={news?.urlToImage} />
+                                <img className='news-image'
+                                    src={news?.urlToImage } alt='Image'/>
 
                                 <p className='news-title'>{news?.title}</p>
                                 <p className='news-content'>{news?.content}</p>
@@ -53,7 +66,7 @@ export default function NewsData() {
                 </div>
             </div>
 
-            <Footer/>
+            <Footer />
 
 
         </>
