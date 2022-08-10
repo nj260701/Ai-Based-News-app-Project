@@ -3,10 +3,12 @@ import { getNews } from '../services/getNews';
 import moment from 'moment';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import alanBtn from '@alan-ai/alan-sdk-web';
 
 
 
 export default function NewsData() {
+    const ALAN_KEY =`960b2165ba50f1284b7b232de95c3a892e956eca572e1d8b807a3e2338fdd0dc/stage`
     const [categorySelected, setCategorySelected] = useState('');
     const [newsData, setNewsData] = useState([])
     const getAllNews = async () => {
@@ -23,7 +25,14 @@ export default function NewsData() {
         setCategorySelected(category);
 
     }
-
+    useEffect(() => {
+        alanBtn({
+            key: ALAN_KEY,
+            onCommand: (commandData) => {
+              setCategorySelected(commandData.data);
+            }
+        });
+      },[])
 
 
 
@@ -39,7 +48,7 @@ export default function NewsData() {
             <Navbar selectCategory={selectCategory}/>
 
             <div className='main'>
-                <h1>Top headlines</h1>
+                <h1>TOP {categorySelected.toUpperCase()} HEADLINES</h1>
 
 
                 <div className='grid-main'>
@@ -50,7 +59,7 @@ export default function NewsData() {
                             <div className='grid-child' key={index}>
 
                                 <img className='news-image'
-                                    src={news?.urlToImage } alt='Image'/>
+                                    src={news?.urlToImage } alt='Images'/>
 
                                 <p className='news-title'>{news?.title}</p>
                                 <p className='news-content'>{news?.content}</p>
