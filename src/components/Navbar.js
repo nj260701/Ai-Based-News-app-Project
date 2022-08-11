@@ -27,37 +27,37 @@ export default function Navbar(props) {
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 
                                 <li className="nav-item">
-                                    <button className="nav-link" value="General" onClick={props.selectCategory}>
+                                    <button className="nav-link" value="GENERAL" onClick={props.selectCategory}>
                                         General
                                     </button>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="nav-link" value="Sports" onClick={props.selectCategory}>
+                                    <button className="nav-link" value="SPORTS" onClick={props.selectCategory}>
                                         Sports
                                     </button>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="nav-link" value="Health" onClick={props.selectCategory}>
+                                    <button className="nav-link" value="HEALTH" onClick={props.selectCategory}>
                                         Health
                                     </button>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="nav-link"  value="Science" onClick={props.selectCategory}>
+                                    <button className="nav-link"  value="SCIENCE" onClick={props.selectCategory}>
                                         Science
                                     </button>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="nav-link" value="Entertainment" onClick={props.selectCategory}>
+                                    <button className="nav-link" value="ENTERTAINMENT" onClick={props.selectCategory}>
                                         Entertainment
                                     </button>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="nav-link" value="Business" onClick={props.selectCategory}>
+                                    <button className="nav-link" value="BUSINESS" onClick={props.selectCategory}>
                                         Business
                                     </button>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="nav-link" value="Technology" onClick={props.selectCategory}>
+                                    <button className="nav-link" value="TECHNOLOGY" onClick={props.selectCategory}>
                                         Technology
                                     </button>
                                 </li>

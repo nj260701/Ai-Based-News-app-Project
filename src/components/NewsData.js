@@ -7,20 +7,23 @@ import alanBtn from '@alan-ai/alan-sdk-web';
 
 
 
+
+
 export default function NewsData() {
-    const ALAN_KEY =`960b2165ba50f1284b7b232de95c3a892e956eca572e1d8b807a3e2338fdd0dc/stage`
+    const ALAN_KEY = `960b2165ba50f1284b7b232de95c3a892e956eca572e1d8b807a3e2338fdd0dc/stage`
     const [categorySelected, setCategorySelected] = useState('');
     const [newsData, setNewsData] = useState([])
     const getAllNews = async () => {
         let data = await getNews(categorySelected);
+        console.log(newsData);
         setNewsData(data.data?.articles)
 
     }
 
-    
 
 
-    const selectCategory = (event) =>{
+
+    const selectCategory = (event) => {
         const category = (event.target.value);
         setCategorySelected(category);
 
@@ -29,10 +32,10 @@ export default function NewsData() {
         alanBtn({
             key: ALAN_KEY,
             onCommand: (commandData) => {
-              setCategorySelected(commandData.data);
+                setCategorySelected(commandData.data);
             }
         });
-      },[])
+    }, [])
 
 
 
@@ -45,21 +48,25 @@ export default function NewsData() {
 
     return (
         <>
-            <Navbar selectCategory={selectCategory}/>
+            <Navbar selectCategory={selectCategory} />
 
             <div className='main'>
-                <h1>TOP {categorySelected.toUpperCase()} HEADLINES</h1>
+                <h1>TOP {categorySelected} HEADLINES</h1>
 
 
                 <div className='grid-main'>
-                    {newsData?.map((news , index) => {
-                        
+                    {newsData?.map((news, index) => {
+
                         return (
-                            
+
                             <div className='grid-child' key={index}>
 
                                 <img className='news-image'
-                                    src={news?.urlToImage } alt='Images'/>
+                                    src={news?.urlToImage}
+                                    onError= {(e) => {
+                                        e.target.onError= null;
+                                        e.target.src="../images/no-picture-available"
+                                    }} />
 
                                 <p className='news-title'>{news?.title}</p>
                                 <p className='news-content'>{news?.content}</p>
