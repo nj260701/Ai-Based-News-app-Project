@@ -63,7 +63,7 @@ export default function NewsData() {
                                 <div className='card grid-child' key={index}>
 
                                     <img className='news-image'
-                                        src={news?.urlToImage} 
+                                        src={!news?.urlToImage?"https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png":news?.urlToImage} 
                                          />
 
                                     <p className='news-title'>{news?.title}</p>
