@@ -1,5 +1,5 @@
 import React from 'react'
-import { getNews } from '../services/getNews';
+// import { getNews } from '../services/getNews';
 
 
  
