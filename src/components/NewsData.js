@@ -58,25 +58,24 @@ export default function NewsData() {
                     {newsData?.map((news, index) => {
 
                         return (
+                            
 
-                            <div className='grid-child' key={index}>
+                                <div className='card grid-child' key={index}>
 
-                                <img className='news-image'
-                                    src={news?.urlToImage}
-                                    onError= {(e) => {
-                                        e.target.onError= null;
-                                        e.target.src="../images/no-picture-available"
-                                    }} />
+                                    <img className='news-image'
+                                        src={news?.urlToImage} 
+                                         />
 
-                                <p className='news-title'>{news?.title}</p>
-                                <p className='news-content'>{news?.content}</p>
-                                <div className='name-date'>
-                                    <p className='news-author'>Author: {news?.author ? news?.author : 'Unknown'}</p>
-                                    <p className='news-date'>Date: {moment(news?.publishedAt).format('LL')}</p>
+                                    <p className='news-title'>{news?.title}</p>
+                                    <p className='news-content'>{news?.content}</p>
+                                    <div className='name-date'>
+                                        <p className='news-author'>Author: {news?.author ? news?.author : 'Unknown'}</p>
+                                        <p className='news-date'>Date: {moment(news?.publishedAt).format('LL')}</p>
+                                    </div>
+                                    <a href={news?.url} target="blank">Read More...</a>
+
                                 </div>
-                                <a href={news?.url} target="blank">Read More...</a>
-
-                            </div>
+                           
                         )
                     })}
                 </div>

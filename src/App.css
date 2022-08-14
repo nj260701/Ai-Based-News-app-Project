@@ -18,9 +18,9 @@ body{
   flex-wrap: wrap;
 }
 
-.grid-child {
+.card {
   margin-bottom:2rem; 
-  width: 20vw;
+  width: 20rem;
   height: inherit;
   position: relative;
   border: 1px solid #e0e0e0;
@@ -72,4 +72,5 @@ img {
   background-color: transparent;
   border:none;
 }
+
 
